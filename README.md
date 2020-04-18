@@ -1,6 +1,6 @@
 # Unbounce Progress Bar Widget
 
-![](https://www.dropbox.com/s/snkh2evt0a2fx4a/Screenshot%202020-04-17%2020.34.01.png?dl=1)
+![](https://www.dropbox.com/s/snkh2evt0a2fx4a/Screenshot%202020-04-17%2020.34.01.png?raw=1)
 
 ## Requirements
 
