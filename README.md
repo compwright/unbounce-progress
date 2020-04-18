@@ -9,7 +9,7 @@
 
 ## Installation
 
-1. Download the index.php file, and edit the Unbounce API key and page ID
+1. Download the [index.php](index.php) file, and edit the Unbounce API key and page ID
 2. Upload the index.php file to your web server
 3. Embed the widget embed code into your Unbounce landing page:
 
