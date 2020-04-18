@@ -1,5 +1,7 @@
 # Unbounce Progress Bar Widget
 
+A simple progress bar inspired by MoveOn.org for petition pages created with Unbounce. Automatically refreshes every 30 seconds and loads with a smooth animation.
+
 ![](https://www.dropbox.com/s/snkh2evt0a2fx4a/Screenshot%202020-04-17%2020.34.01.png?raw=1)
 
 ## Requirements
