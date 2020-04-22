@@ -114,20 +114,19 @@ function goal($count) {
     }
 
     .progress {
-      height: 24px;
-      margin-top: 20px;
       position: relative;
       box-sizing: border-box;
       border-radius: 4px;
+      padding-top: 20px;
     }
     .progress::before, .progress::after {
       display: inline-block;
       position: absolute;
       z-index: 3;
       vertical-align: middle;
-      font-size: 10px;
+      font-size: 60%;
       padding: 0;
-      top: -20px;
+      top: 0;
       line-height: 24px;
       opacity: 0.5;
     }
@@ -139,19 +138,20 @@ function goal($count) {
       content: attr(end);
       right: 0;
     }
+    .progress-bar-track {
+      height: 24px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
     .progress-bar {
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
       width: 0%;
       height: 100%;
-      border-radius: 4px;
       transition: width 1s;
     }
     .progress-bar-caption {
       margin-top: 0.33em;
       text-align: left;
+      white-space: nowrap;
     }
 
     /* theming */
@@ -160,8 +160,25 @@ function goal($count) {
       font-size: <?php echo $fontSize; ?>;
       color: <?php echo $fontColor; ?>;
     }
-    .progress { background: <?php echo $bgColor; ?>; }
+    .progress-bar-track { background: <?php echo $bgColor; ?>; }
     .progress-bar { background: <?php echo $barColor; ?>; }
+
+    /* responsiveness */
+    @media screen and (max-width: 375px) {
+      #app {
+        font-size: 60%;
+      }
+    }
+    @media screen and (min-width: 376px) and (max-width: 414px) {
+      #app {
+        font-size: 70%;
+      }
+    }
+    @media screen and (min-width: 414px) and (max-width: 480px) {
+      #app {
+        font-size: 80%;
+      }
+    }
   </style>
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -170,7 +187,9 @@ function goal($count) {
 <body>
   <div id="app">
     <div class="progress" start="0" v-bind:end="Number(goal).toLocaleString()">
-      <hr class="progress-bar" v-bind:style="progress" />
+      <div class="progress-bar-track">
+        <hr class="progress-bar" v-bind:style="progress" />
+      </div>
     </div>
     <p class="progress-bar-caption">
       <b>{{Number(count).toLocaleString()}} people</b> have signed - help us get to
