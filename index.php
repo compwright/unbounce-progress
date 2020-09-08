@@ -3,16 +3,21 @@
 // EMBED STYLE
 
 $bgColor = '#e4e4e4';
-$barColor = 'repeating-linear-gradient(-45deg, #00abff, #00abff 10px, #9df 10px, #9df 20px)';
-$font = 'sans-serif';
-$fontSize = '16px';
-$fontColor = '#333333';
+$barColor = 'repeating-linear-gradient(-45deg, #01426A, #01426A 10px, #F5F5F5 10px, #F5F5F5 20px)';
+$font = 'Arial, Helvetica, sans-serif';
+$fontSize = '20px';
+$fontColor = '#01426A';
+
+
+// CONFIGURATION
+
+$startWith = 50; // prime the pump with a number of pretend signers
 
 
 // API SETTINGS
 
-$unbounce_api_key = '21190ffef070d44747a046b804e5a116';
-$unbounce_page_id = '73948c39-adae-435f-9aad-6290f7b61dba';
+$unbounce_api_key = 'INSERT_API_KEY';
+$unbounce_page_id = 'INSERT_PAGE_ID';
 
 
 // API (DO NOT EDIT BELOW THIS LINE)
@@ -32,7 +37,7 @@ if (!empty($_GET['api'])) {
 
 		try {
 			$response = json_decode($body, false, 512, JSON_THROW_ON_ERROR);
-			$count = $response->metadata->count;
+			$count = $response->metadata->count + $startWith;
 			$goal = goal($count);
 		} catch (Exception $e) {
 			throw new Exception("Error parsing response", 0, $e);
@@ -164,17 +169,7 @@ function goal($count) {
     .progress-bar { background: <?php echo $barColor; ?>; }
 
     /* responsiveness */
-    @media screen and (max-width: 375px) {
-      #app {
-        font-size: 60%;
-      }
-    }
-    @media screen and (min-width: 376px) and (max-width: 414px) {
-      #app {
-        font-size: 70%;
-      }
-    }
-    @media screen and (min-width: 414px) and (max-width: 480px) {
+    @media screen and (max-width: 414px) {
       #app {
         font-size: 80%;
       }
@@ -192,8 +187,8 @@ function goal($count) {
       </div>
     </div>
     <p class="progress-bar-caption">
-      <b>{{Number(count).toLocaleString()}} people</b> have signed - help us get to
-      {{Number(goal).toLocaleString()}} signatures!
+      <b>{{Number(count).toLocaleString()}} signatures</b> &ndash; help us get to
+      {{Number(goal).toLocaleString()}}!
     </p>
   </div>
   <script type="text/javascript">
